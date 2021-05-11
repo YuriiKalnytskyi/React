@@ -1,0 +1,15 @@
+.container{
+
+    display: flex;
+}
+
+.usersContainer{
+    border: 2px solid black;
+    width: fit-content;
+    padding: 10px;
+}
+.oneUsers{
+    border: 2px solid #9f4545;
+    width: fit-content;
+    padding: 10px;
+}

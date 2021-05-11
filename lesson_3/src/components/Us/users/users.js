@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import User from "../user/user";
-import 'users.css'
+import './users.css'
 
 
 export default function Users() {
@@ -14,9 +14,10 @@ export default function Users() {
             });
     }, [])
 
+    let [oneUsers, setOneUsers]=useState(null)
     const search =(id)=>{
         let find =users.find(value => value.id===id)
-
+setOneUsers(find)
     }
 
     return (
@@ -27,7 +28,10 @@ export default function Users() {
                 }
             </div>
 
-            <div>
+            <div className={'oneUsers'}>
+                {
+                    oneUsers ? (<h2>{oneUsers.id} {oneUsers.username}</h2>) :(<div>user is not defined</div>)
+                }
 
             </div>
         </div>
