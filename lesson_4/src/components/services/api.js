@@ -10,9 +10,12 @@ let axiosInstance = axios.create(options);
 const getCharacters =()=>{
     return axiosInstance.get('/characters'); // promise
 }
-const getInventor =()=> {
+const getInventor =(id)=> {
     return axiosInstance.get('/inventory'); // promise
 }
+const getInventorDelali =(id)=> {
+    return axiosInstance.get('/inventory/'+ id);// promise
+}
 export {
-    getCharacters ,getInventor
+    getCharacters ,getInventor , getInventorDelali
 };

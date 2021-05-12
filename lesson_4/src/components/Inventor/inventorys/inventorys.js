@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import Inventor from "../inventoryr/inventor";
 import {getInventor} from "../../services/api";
 
-export default function Inventorys(){
+export default function Inventorys({url}){
     let [inventorys , setInventorys]=useState([]);
     useEffect(()=>{
         getInventor().then(value => setInventorys([...value.data]))
@@ -12,7 +12,10 @@ export default function Inventorys(){
         <div>
             {
                 x.map(value => <Inventor key={value.id}
-                    {...value}/>)
+                    {...value}
+                    url = {url}
+                />)
+
             }
 
         </div>
