@@ -5,7 +5,7 @@ export default function Inventor(props){
     return (
         <div>
             {title}-
-            <Link to={url + '/' + id}>users {id} details </Link>
+            <Link to={url + '/' + id}>user {id} details </Link>
 
         </div>
     );

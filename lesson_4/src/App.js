@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import Characters from "./components/Caract/characters/characters";
 import Inventorys from "./components/Inventor/inventorys/inventorys";
-import InventoryDetali from "./components/Inventor/InventoryDetali/InventoryDetali";
+import InventoryDetali from "./components/Inventor/InventoryDetali/InventoryDetail";
 
 function App() {
   return (
