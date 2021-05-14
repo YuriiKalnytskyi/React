@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {getUsersDetali} from "../../../../servises/api";
+import {getUsersDetali} from "../../servises/api";
 
 
 export default function UsersDetali(props) {
@@ -9,7 +9,7 @@ export default function UsersDetali(props) {
     useEffect(() => {
         getUsersDetali(id).then(value => setDetail(value.data.data))
     }, [id])
-    console.log(detail);
+
     return (
         <div>
             {detail && <div>
