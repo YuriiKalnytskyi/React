@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+}
+.Add_form{
+     display: flex;
+     width: 300px;
+     height: 250px;
+     background: silver;
+ }
+.detail{
+    margin: 20px;
+    width: fit-content;
+    height: fit-content;
+}
+.details{
+    width: fit-content;
+    height: fit-content;
+    background: red;
+}
+ .input{
+     margin: 3px;
+     width: 200px;
+     height: 20px;
+     border-radius: 10px;
+ }
+ .bt{
+     width: 50px;
+     height: 10px;
+ }

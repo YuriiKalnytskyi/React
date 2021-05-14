@@ -16,9 +16,12 @@ export default function Users() {
 
     let [oneUsers, setOneUsers]=useState(null)
     const search =(id)=>{
+        console.log(value.id)
         let find =users.find(value => value.id===id)
 setOneUsers(find)
+
     }
+
 
     return (
         <div className={'container'}>
