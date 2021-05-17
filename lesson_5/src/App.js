@@ -8,18 +8,11 @@ function App() {
             <Router>
                 <div><Link to={'/users'}> users</Link></div>
                 <Switch>
-                    <Route exact path={'/users'} render={(props)=>{
-                        console.log(props)
-                        return <Users item={props}/>
-                    }}/>
+                    <Route exact path={'/users'} render={()=><Users/>}/>
+
                     <Route path={'/users/:id'} render={({match:{params:{id}}})=>{
                         return <UsersDetali id={id}/>
                     }}/>
-
-
-
-
-
 
                 </Switch>
             </Router>
