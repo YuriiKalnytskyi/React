@@ -19,7 +19,6 @@ export default function Notes() {
         // ev.preventDefault();
         setInformation([...information, {name, id: Date.now(), surname, city, year, phone}])
     }
-
     const nameAdd = (ev) => {
         setName(name = ev.target.value)
     }
