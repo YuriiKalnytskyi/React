@@ -2,7 +2,7 @@ import {useState} from "react";
 import './Notes.css'
 
 export default function User (props) {
-    let {name  ,id, surname ,city,year,phone ,del}=props
+    let {name  ,id, surname ,city,year,phone ,del,update}=props
     let  [detail , setDetail]= useState(false);
 
     const details = () => {
@@ -18,6 +18,7 @@ export default function User (props) {
           <button onClick={details}>detail</button>
           <button onClick={hide}>hide</button>
           <button onClick={()=>{del(id)}}>del</button>
+          <button onClick={()=>update(id)}>update</button>
 
           <div className={'details'}>
               {
@@ -28,7 +29,6 @@ export default function User (props) {
                           year:{year}<br/>
                           phone:{phone} <hr/>
                       </h3>
-
                   </div>)
 
               }

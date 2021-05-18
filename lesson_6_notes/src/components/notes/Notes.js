@@ -9,6 +9,7 @@ export default function Notes() {
     let [year, setYear] = useState('')
     let [phone, setPhone] = useState('')
     let [information, setInformation] = useState(JSON.parse(localStorage.getItem('user')) || [])
+    let [user, setUser] = useState('')
 
 
     useEffect(() => {
@@ -18,6 +19,7 @@ export default function Notes() {
         // ev.preventDefault();
         setInformation([...information, {name, id: Date.now(), surname, city, year, phone}])
     }
+
     const nameAdd = (ev) => {
         setName(name = ev.target.value)
     }
@@ -36,17 +38,29 @@ export default function Notes() {
     const del = (id)=>{
         setInformation(information.filter(value =>value.id!==id))
     }
-    console.log(JSON.parse(localStorage.getItem('user')))
+    const update=(id)=>{
+        setUser(information.find(value=>value.id===id))
+    }
+    const updateUser=(e)=>{
+        // e.preventDefault()
+        console.log();
+        setInformation([...information.filter(value => value.id !== user.id), {name, id: Date.now(), surname, city, year, phone}])
+        setUser(null)
+    }
+
+    console.log(information);
+
+    console.log(user);
     return (
         <div className={'container'}>
             <div className={'Add_form'}>
                 <form>
-                    <input onChange={nameAdd} className={'input'} type={"text"} placeholder={"name"}/>
-                    <input onChange={surnameAdd} className={'input'} type={"text"} placeholder={"surname"}/>
-                    <input onChange={cityAdd} className={'input'} type={"text"} placeholder={"city"}/>
-                    <input onChange={yearAdd} className={'input'} type={"text"} placeholder={"year"}/>
-                    <input onChange={phoneAdd} className={'input'} type={"text"} placeholder={"phone(+380)"}/>
-                    <button onClick={add_information} className={'bt'}> add</button>
+                    <input defaultValue={user&&user.name} onChange={nameAdd} className={'input'} type={"text"} placeholder={"name"}/>
+                    <input defaultValue={user&&user.surname} onChange={surnameAdd} className={'input'} type={"text"} placeholder={"surname"}/>
+                    <input defaultValue={user&&user.city} onChange={cityAdd} className={'input'} type={"text"} placeholder={"city"}/>
+                    <input defaultValue={user&&user.year} onChange={yearAdd} className={'input'} type={"text"} placeholder={"year"}/>
+                    <input defaultValue={user&&user.phone} onChange={phoneAdd} className={'input'} type={"text"} placeholder={"phone(+380)"}/>
+                    <button onClick={user?(e)=>updateUser(e):add_information} className={'bt'}>{user?'update':'add'}</button>
                 </form>
             </div>
 
@@ -55,6 +69,7 @@ export default function Notes() {
                     information.map((value, index) => {
                         return <User key={index}
                                      del={del}
+                                     update={update}
                                      {...value}/>
                     })
                 }
