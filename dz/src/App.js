@@ -6,11 +6,10 @@ import UserPost from "./components/users/UserPost";
 import UserComent from "./components/users/UserComent";
 
 
-
-
 function App() {
   return (
     <div>
+
 
       <Router>
           <div><Link to={'/users'}>users</Link></div>
