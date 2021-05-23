@@ -7,7 +7,11 @@ export default function Users (props) {
     let [users , setUsers]=useState([])
     let [page , setPage]=useState(1)
     useEffect(()=>{
-        getUsers(page).then(value => setUsers([...value.data.data]))
+        getUsers(page).then(value => {
+            setUsers([...value.data.data])
+
+        })
+
     },[page])
 
     const dec = ()=> setPage(--page)
